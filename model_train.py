@@ -9,6 +9,7 @@ import cv2
 
 from tensorflow.keras.preprocessing import image
 
+from keras.regularizers import l2
 import tensorflow as tf
 from tensorflow import keras
 from keras.preprocessing.image import ImageDataGenerator
@@ -43,28 +44,28 @@ print('Number of classes: {}'.format(len(set(training_data.classes))))
 
 
 model = Sequential()
-model.add(Conv2D(filters = 32, kernel_size = (3, 3), activation = 'relu', input_shape = training_data.image_shape))
+model.add(Conv2D(filters = 32, kernel_size = (3, 3), kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01), activation = 'relu', input_shape = training_data.image_shape))
 model.add(MaxPooling2D(pool_size = (2, 2)))
-model.add(Dropout(rate = 0.3))
+model.add(Dropout(rate = 0.8))
 
-model.add(Conv2D(filters = 64, kernel_size = (3, 3), activation = 'relu'))
+model.add(Conv2D(filters = 64, kernel_size = (3, 3), kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01), activation = 'relu'))
 model.add(MaxPooling2D(pool_size = (2, 2)))
-model.add(Dropout(rate = 0.2))
+model.add(Dropout(rate = 0.5))
 
-model.add(Conv2D(filters = 128, kernel_size = (3, 3), activation = 'relu'))
+model.add(Conv2D(filters = 128, kernel_size = (3, 3), kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01), activation = 'relu'))
 model.add(MaxPooling2D(pool_size = (2, 2)))
-model.add(Dropout(rate = 0.15))
+model.add(Dropout(rate = 0.5))
 
 model.add(Flatten())
 
-model.add(Dense(units = 128, activation = 'relu'))
-model.add(Dropout(rate = 0.15))
+model.add(Dense(units = 128, kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01), activation = 'relu'))
+model.add(Dropout(rate = 0.5))
 
-model.add(Dense(units = 64, activation = 'relu'))
-model.add(Dropout(rate = 0.1))
+model.add(Dense(units = 64, kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01), activation = 'relu'))
+model.add(Dropout(rate = 0.5))
 
-model.add(Dense(units = 32, activation = 'relu'))
-model.add(Dropout(rate = 0.1))
+model.add(Dense(units = 32, kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01), activation = 'relu'))
+model.add(Dropout(rate = 0.5))
 
 model.add(Dense(units = len(set(training_data.classes)), activation = 'softmax'))
 

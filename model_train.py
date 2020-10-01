@@ -75,10 +75,10 @@ print(model.summary())
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 fitted_model = model.fit(training_data,
-                   steps_per_epoch=150,
-                   epochs=50,
+                   steps_per_epoch=100,
+                   epochs=40,
                    validation_data=testing_data,
-                   validation_steps=150)
+                   validation_steps=100)
 
 
 accuracy = fitted_model.history['accuracy']

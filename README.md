@@ -1,36 +1,36 @@
 # COVID-19-Detection-using-X-ray
 A CNN based neural network developed to classify the covid positive patients from the healthy patients by analysing their chest X-Ray.
 
-##Dependencies
-<br><br>
+## Dependencies
+<br>
 
 keras
-<br><br>
+<br>
 ```pip install keras```
 
-<br><br>
+<br>
 
 tensorflow 
-<br><br>
+<br>
 ``` pip install tensorflow ```
-<br><br>
+<br>
 
 opencv
-<br><br>
+<br>
 
 ``` pip install opencv-python ```
 
-<br><br>
+<br>
 
 matplotlib
-<br><br>
+<br>
 
 ``` pip install matplotlib ```
 
-<br><br>
+<br>
 
 Numpy
-<br><br>
+<br>
 
 ``` pip install numpy ```
-<br><br>
+<br>

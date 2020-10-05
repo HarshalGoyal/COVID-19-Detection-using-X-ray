@@ -18,7 +18,7 @@ tensorflow
 opencv
 <br><br>
 
-``` pip install opencv-python '''
+``` pip install opencv-python ```
 
 <br><br>
 
